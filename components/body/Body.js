@@ -3,6 +3,7 @@ import { restrautList } from "../../utills/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utills/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState(restrautList);
@@ -27,6 +28,10 @@ const Body = () => {
   // returns an array of 2 values i.e. var and setter funtion
   // const arr = useState(restrautList);
   // const [resList, setResList] = arr
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) return <h1>Looks like you are offline check your internet Connection!!</h1>
 
   return resList.length === 0 ? (
     <Shimmer />
