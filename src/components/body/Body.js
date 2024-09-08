@@ -31,24 +31,25 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  if (onlineStatus === false) return <h1>Looks like you are offline check your internet Connection!!</h1>
+  if (onlineStatus === false)
+    return <h1>Looks like you are offline check your internet Connection!!</h1>;
 
   return resList.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="search p-5 bg-pink-50 my-5">
           <input
             type="text"
-            className="search-box"
+            className="focus:bg-green-200 p-2 m-2"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="searchBtn"
+            className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
             onClick={() => {
               console.log(searchText);
               const filteredResList = resList.filter((restaurant) => {
@@ -76,7 +77,7 @@ const Body = () => {
       >
         Top Rated Restaurants
       </button>
-      <div className="res-container">
+      <div className="flex flex-wrap ">
         {filteredResList.map((restaurant) => {
           // console.log(restaurant)
           return (

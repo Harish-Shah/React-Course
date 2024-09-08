@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/header/Header";
-import Body from "./components/body/Body";
+import Header from "./src/components/header/Header";
+import Body from "./src/components/body/Body";
 // import About from "./components/About";
-import ContactUs from "./components/Contact";
-import ErrorPage from "./components/ErrorPage";
+import ContactUs from "./src/components/Contact"
+import ErrorPage from "./src/components/ErrorPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenu from "./src/components/RestaurantMenu";
 // import Grocery from "./components/Grocery";
 
 /*
@@ -15,8 +15,8 @@ Body - Searchbar,RestaurantContainer,RestaurantCard
 Footer- About,Links,Address,Contact
 */
 
-const Grocery = lazy(() => import("./components/Grocery"));
-const About = lazy(() => import("./components/About"));
+const Grocery = lazy(() => import("./src/components/Grocery"));
+const About = lazy(() => import("./src/components/About"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

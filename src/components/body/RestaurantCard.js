@@ -4,18 +4,18 @@ const RestaurantCard = ({
   cloudinaryImageId,
   lastMileTravelString,
   costForTwoString,
-  avgRating
+  avgRating,
 }) => {
-
-   return (
-    <div className="res-card">
+  return (
+    <div className="w-56 p-2 m-2 shadow-lg bg-pink-50 h-60">
       <img
+        className="h-12"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
           cloudinaryImageId
         }
       />
-      <h2>{name}</h2>
+      <h2 className="font-bold text-xl">{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h4>{costForTwoString}</h4>
       <h4>{avgRating}</h4>
