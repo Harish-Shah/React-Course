@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utills/userContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -26,13 +27,20 @@ class UserClass extends React.Component {
   render() {
     console.log(this.state.userInfo);
 
-    const { login,location } = this.state.userInfo
+    const { login, location } = this.state.userInfo;
 
     return (
       <div className="user-card">
         <h2>Name : {login}</h2>
         <h2>Location: {location}</h2>
         <h2>Conatact: h@gmail.com</h2>
+        {/* Fetching Context data in Class Based Components */}
+        <h2>
+          User:{" "}
+          <UserContext.Consumer>
+            {(data) => data.loggedInUser}
+          </UserContext.Consumer>
+        </h2>
         <button
           onClick={() => {
             this.setState({

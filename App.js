@@ -1,12 +1,13 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/header/Header";
 import Body from "./src/components/body/Body";
 // import About from "./components/About";
-import ContactUs from "./src/components/Contact"
+import ContactUs from "./src/components/Contact";
 import ErrorPage from "./src/components/ErrorPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+import UserContext from "./src/utills/userContext";
 // import Grocery from "./components/Grocery";
 
 /*
@@ -21,11 +22,22 @@ const About = lazy(() => import("./src/components/About"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState(null);
+
+  useEffect(() => {
+    const data = {
+      name: "Haris Shah",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

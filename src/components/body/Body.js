@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { restrautList } from "../../utills/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
@@ -33,6 +33,8 @@ const Body = () => {
 
   if (onlineStatus === false)
     return <h1>Looks like you are offline check your internet Connection!!</h1>;
+
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
   return resList.length === 0 ? (
     <Shimmer />
@@ -79,10 +81,14 @@ const Body = () => {
       </button>
       <div className="flex flex-wrap ">
         {filteredResList.map((restaurant) => {
-          // console.log(restaurant)
+          console.log(restaurant);
           return (
             <Link to={"restaurant/" + restaurant.data.id}>
-              <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+              {restaurant.data.promoted ? (
+                <PromotedRestaurantCard {...restaurant.data} />
+              ) : (
+                <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+              )}
             </Link>
           );
         })}
