@@ -1,9 +1,12 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { restrautList } from "../../utills/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utills/useOnlineStatus";
+import UserContext from "../../utills/userContext";
+import { useDispatch } from "react-redux";
+import { addItem, clearCart } from "../../utills/cartSlice";
 
 const Body = () => {
   const [resList, setResList] = useState(restrautList);
@@ -36,6 +39,19 @@ const Body = () => {
 
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
+  const dispatch = useDispatch();
+
+  const handleSearchClick = () => {
+    dispatch(addItem(searchText));
+    setSearchText("");
+  };
+
+  const handleClearCartClick = () => {
+    dispatch(clearCart())
+  };
+
   return resList.length === 0 ? (
     <Shimmer />
   ) : (
@@ -46,23 +62,33 @@ const Body = () => {
             type="text"
             className="focus:bg-green-200 p-2 m-2"
             value={searchText}
+            // value={loggedInUser}
             onChange={(e) => {
               setSearchText(e.target.value);
+              // setUserName(e.target.value);
             }}
           />
           <button
             className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
             onClick={() => {
-              console.log(searchText);
-              const filteredResList = resList.filter((restaurant) => {
-                return restaurant.data.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase());
-              });
-              setFilteredResList(filteredResList);
+              // console.log(searchText);
+              // const filteredResList = resList.filter((restaurant) => {
+              //   return restaurant.data.name
+              //     .toLowerCase()
+              //     .includes(searchText.toLowerCase());
+              // });
+              // setFilteredResList(filteredResList);
+              handleSearchClick();
             }}
           >
             Search
+          </button>
+
+          <button
+            className="p-2 m-2 bg-red-400 hover:bg-red-600 text-white rounded-md"
+            onClick={handleClearCartClick}
+          >
+            Clear Cart
           </button>
         </div>
       </div>
@@ -81,7 +107,7 @@ const Body = () => {
       </button>
       <div className="flex flex-wrap ">
         {filteredResList.map((restaurant) => {
-          console.log(restaurant);
+          // console.log(restaurant);
           return (
             <Link to={"restaurant/" + restaurant.data.id}>
               {restaurant.data.promoted ? (

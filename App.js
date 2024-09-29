@@ -8,6 +8,8 @@ import ErrorPage from "./src/components/ErrorPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import UserContext from "./src/utills/userContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utills/appStore";
 // import Grocery from "./components/Grocery";
 
 /*
@@ -32,12 +34,14 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
