@@ -175,10 +175,7 @@ const config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": [
-      "babel-jest",
-      { presets: ["@babel/preset-env", "@babel/preset-react"] }
-    ]
+    "^.+\\.(js|jsx|ts|tsx|mjs)$": "babel-jest"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
