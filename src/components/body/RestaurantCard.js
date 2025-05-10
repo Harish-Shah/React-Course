@@ -16,7 +16,7 @@ const RestaurantCard = ({
         }
       />
       <h2 className="font-bold text-xl">{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
+      {/* <h3>{cuisines.join(", ")}</h3> */}
       <h4>{costForTwoString}</h4>
       <h4>{avgRating}</h4>
       <h4>{lastMileTravelString} minutes</h4>

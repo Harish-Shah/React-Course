@@ -72,13 +72,13 @@ const Body = () => {
             className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
             onClick={() => {
               // console.log(searchText);
-              // const filteredResList = resList.filter((restaurant) => {
-              //   return restaurant.data.name
-              //     .toLowerCase()
-              //     .includes(searchText.toLowerCase());
-              // });
-              // setFilteredResList(filteredResList);
-              handleSearchClick();
+              const filteredResList = resList.filter((restaurant) => {
+                return restaurant.data.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase());
+              });
+              setFilteredResList(filteredResList);
+              // handleSearchClick(); // add items to cart
             }}
           >
             Search

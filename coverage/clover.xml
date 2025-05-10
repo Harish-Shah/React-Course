@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1745741688046" clover="3.2.0">
-  <project timestamp="1745741688046" name="All files">
-    <metrics statements="28" coveredstatements="21" conditionals="4" coveredconditionals="2" methods="12" coveredmethods="7" elements="44" coveredelements="30" complexity="0" loc="28" ncloc="28" packages="3" files="7" classes="7"/>
+<coverage generated="1746862988770" clover="3.2.0">
+  <project timestamp="1746862988770" name="All files">
+    <metrics statements="34" coveredstatements="27" conditionals="4" coveredconditionals="2" methods="15" coveredmethods="10" elements="53" coveredelements="39" complexity="0" loc="34" ncloc="34" packages="5" files="9" classes="9"/>
     <package name="components">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Contact.js" path="C:\Users\haris\OneDrive\Desktop\React-Series\React-Course\src\components\Contact.js">
@@ -15,6 +15,17 @@
         <line num="2" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="components.body">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="RestaurantCard.js" path="C:\Users\haris\OneDrive\Desktop\React-Series\React-Course\src\components\body\RestaurantCard.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="components.header">
       <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="Header.js" path="C:\Users\haris\OneDrive\Desktop\React-Series\React-Course\src\components\header\Header.js">
@@ -26,6 +37,13 @@
         <line num="13" count="5" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
         <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+    </package>
+    <package name="components.mocks">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="resCardMock.js" path="C:\Users\haris\OneDrive\Desktop\React-Series\React-Course\src\components\mocks\resCardMock.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
       </file>
     </package>
     <package name="utills">
